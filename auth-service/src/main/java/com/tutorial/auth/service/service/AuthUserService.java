@@ -37,6 +37,7 @@ public class AuthUserService {
                 .build();
         return authUserRepository.save(authUser);
     }
+
     public TokenDto login(AuthUserDto dto) {
         Optional<AuthUser> user = authUserRepository.findByUserName(dto.getUserName());
         if(!user.isPresent())
@@ -46,8 +47,8 @@ public class AuthUserService {
         return null;
     }
 
-    public TokenDto validate(String token,RequestDto dto) {
-        if(!jwtProvider.validate(token,dto))
+    public TokenDto validate(String token, RequestDto dto) {
+        if(!jwtProvider.validate(token, dto))
             return null;
         String username = jwtProvider.getUserNameFromToken(token);
         if(!authUserRepository.findByUserName(username).isPresent())
