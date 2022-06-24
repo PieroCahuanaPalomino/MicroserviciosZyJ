@@ -1,6 +1,5 @@
-package com.tutorial.auth.service.dto;
+package com.tutorial.gateway.service.dto;
 
-import com.tutorial.auth.service.entity.AuthUser;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class TokenDto {
-	private String token;
+public class RequestDto {
+	
+	private String uri;
+	private String method;
 }
